@@ -1,0 +1,321 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3621677634524493356
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1139196207806781222}
+  - component: {fileID: 7739893877551568238}
+  m_Layer: 0
+  m_Name: Punch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1139196207806781222
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3621677634524493356}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2678483374459469887}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7739893877551568238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3621677634524493356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f631f3e441c563a4b97016bcefaa4c3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inst: {fileID: 0}
+  attackName: Punch
+  description: Just a simple Punch
+  startPosition: {x: 0, y: 0, z: 0}
+  duration: 1
+  attackType: 0
+  damageValue: 10
+--- !u!1 &6535276195596375887
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3907192552746775428}
+  - component: {fileID: 4204541297715989731}
+  m_Layer: 0
+  m_Name: Fat_Defence
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3907192552746775428
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6535276195596375887}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7836866822341250822}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4204541297715989731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6535276195596375887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec607cf4575a8344599d77c5ec2b84cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inst: {fileID: 0}
+  attackName: Fat Defence
+  description: Use Bodyfat to reduce Damage taken
+  startPosition: {x: 0, y: 0, z: 0}
+  duration: 1
+  attackType: 0
+--- !u!1 &7778539497032049257
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4570273437370479094}
+  - component: {fileID: 7256187253222830729}
+  m_Layer: 0
+  m_Name: Windup_Punch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4570273437370479094
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7778539497032049257}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2678483374459469887}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7256187253222830729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7778539497032049257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d583ff375f0118b49ac044087e227038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inst: {fileID: 0}
+  attackName: Windup Punch
+  description: Test attack with buttomash for more damage
+  startPosition: {x: 0, y: 0, z: 0}
+  duration: 1
+  attackType: 1
+  damageValue: 10
+--- !u!1001 &3671242821254535172
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6452165160259912727, guid: 3d82916cc88e84a42a414c6c89172235,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452165160259912727, guid: 3d82916cc88e84a42a414c6c89172235,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452165161188920142, guid: 3d82916cc88e84a42a414c6c89172235,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452165161188920142, guid: 3d82916cc88e84a42a414c6c89172235,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452165161188920142, guid: 3d82916cc88e84a42a414c6c89172235,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452165161188920142, guid: 3d82916cc88e84a42a414c6c89172235,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452165161188920142, guid: 3d82916cc88e84a42a414c6c89172235,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452165161188920142, guid: 3d82916cc88e84a42a414c6c89172235,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452165161188920142, guid: 3d82916cc88e84a42a414c6c89172235,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452165161188920142, guid: 3d82916cc88e84a42a414c6c89172235,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452165161188920142, guid: 3d82916cc88e84a42a414c6c89172235,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452165161188920142, guid: 3d82916cc88e84a42a414c6c89172235,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452165161188920142, guid: 3d82916cc88e84a42a414c6c89172235,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452165161188920143, guid: 3d82916cc88e84a42a414c6c89172235,
+        type: 3}
+      propertyPath: m_Name
+      value: TabiUnit
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089459261669633906, guid: 3d82916cc88e84a42a414c6c89172235,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1199209652, guid: 8900f1f3e56760043ac227fdd12b99a5,
+        type: 3}
+    - target: {fileID: 7089459261669633906, guid: 3d82916cc88e84a42a414c6c89172235,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3d82916cc88e84a42a414c6c89172235, type: 3}
+--- !u!4 &2678483374459469887 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1718472443018221627, guid: 3d82916cc88e84a42a414c6c89172235,
+    type: 3}
+  m_PrefabInstance: {fileID: 3671242821254535172}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &5805155613902092150 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7089459261669633906, guid: 3d82916cc88e84a42a414c6c89172235,
+    type: 3}
+  m_PrefabInstance: {fileID: 3671242821254535172}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7744060378070871452 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6452165160487564696, guid: 3d82916cc88e84a42a414c6c89172235,
+    type: 3}
+  m_PrefabInstance: {fileID: 3671242821254535172}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04e1772e92b93eb48a2716b24c75b2a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &7744060378401035083 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6452165161188920143, guid: 3d82916cc88e84a42a414c6c89172235,
+    type: 3}
+  m_PrefabInstance: {fileID: 3671242821254535172}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &611249738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7744060378401035083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9485986a165cc67459a78ce97b6fac80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 1199209652, guid: 8900f1f3e56760043ac227fdd12b99a5, type: 3}
+  unitName: Tabi
+  maxHP: 40
+  currentHP: 0
+  speed: 1
+  saveValue: 10
+  HPBar: {fileID: 7744060378070871452}
+  spriteRenderer: {fileID: 5805155613902092150}
+  attacks:
+  - {fileID: 7739893877551568238}
+  - {fileID: 7256187253222830729}
+  abilities:
+  - {fileID: 4204541297715989731}
+  menuIcon: {fileID: 21300000, guid: d133d39795cd3894b8856c83d80ddba7, type: 3}
+  unitState: 0
+--- !u!114 &8926812915585056450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7744060378401035083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39a164e8d28c1724fa4ffa4c1c4d685b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  User: {fileID: 0}
+  turnDone: 0
+--- !u!4 &7836866822341250822 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6787200888271640322, guid: 3d82916cc88e84a42a414c6c89172235,
+    type: 3}
+  m_PrefabInstance: {fileID: 3671242821254535172}
+  m_PrefabAsset: {fileID: 0}
