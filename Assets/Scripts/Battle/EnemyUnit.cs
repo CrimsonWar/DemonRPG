@@ -29,6 +29,15 @@ public class EnemyUnit : UnitAbstract
         return targetPos;
     }
 
+    public override void takeDamage(int damageTaken) {
+        currentHP -= damageTaken;
+        if(currentHP <= 0) {
+            currentHP = 0;
+            unitState = UnitState.Dead;
+        }
+        HPBar.SetHealth(currentHP);
+}
+
     IEnumerator Died() {
         yield return new WaitForSeconds(3);
         this.OnTurnEnd();

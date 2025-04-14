@@ -7,7 +7,8 @@ public enum StatusCat
 {
     Damage,
     Heal,
-    Bonus
+    StartOfTurn,
+    EndOfTurn
 }
 public enum StatusType
 {
@@ -21,6 +22,8 @@ public abstract class StatusBase : MonoBehaviour
     public StatusType Type;
     public Sprite sprite;
     public int length;
+    public string Name;
+    public string Description;
 
     public abstract void handleStatus();
 

@@ -76,7 +76,7 @@ public abstract class UnitAbstract : MonoBehaviour,iUnit
         _animator = specificAnimator;
     }
 
-    public void takeDamage(int damageTaken) {
+    public virtual void takeDamage(int damageTaken) {
         if(unitState == UnitState.OnTheBrink) {
             saveValue++;
             this.DeathSave();

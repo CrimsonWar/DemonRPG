@@ -13,7 +13,9 @@ public class PlayerMenu : MonoBehaviour
     [SerializeField] private Button PassButton;
     [SerializeField] private Button MoveButton;
     [SerializeField] private GameObject AttackPopup;
+    [SerializeField] private GameObject AttackContent;
     [SerializeField] private GameObject AbilityPopup;
+    [SerializeField] private GameObject AbilityContent;
     [SerializeField] private GameObject disableImage;
 
     private List<GameObject> attackButtons;
@@ -34,13 +36,13 @@ public class PlayerMenu : MonoBehaviour
     }
 
     private void setupAttacks () {
-        GameObject attackTemplate = AttackPopup.transform.GetChild(0).gameObject;
+        GameObject attackTemplate = AttackContent.transform.GetChild(0).gameObject;
         GameObject a;
         attackButtons = new List<GameObject>{};
         AttackBase[] attacks = unit.getAttacks();
         foreach (AttackBase attack in attacks)
         {
-            a = Instantiate(attackTemplate, AttackPopup.transform);
+            a = Instantiate(attackTemplate, AttackContent.transform);
             a.GetComponent<ATemplateHandler>().setupTemplate(attack);
             attackButtons.Add(a);
         }
@@ -48,13 +50,13 @@ public class PlayerMenu : MonoBehaviour
     }
     
     private void setupAbilities () {
-        GameObject abilityTemplate = AbilityPopup.transform.GetChild(0).gameObject;
+        GameObject abilityTemplate = AbilityContent.transform.GetChild(0).gameObject;
         GameObject a;
         abilityButtons = new List<GameObject>{};
         AttackBase[] abilities = unit.getAbilities();
         foreach (AttackBase ability in abilities)
         {
-            a = Instantiate(abilityTemplate, AbilityPopup.transform);
+            a = Instantiate(abilityTemplate, AbilityContent.transform);
             a.GetComponent<ATemplateHandler>().setupTemplate(ability);
             abilityButtons.Add(a);
         }
