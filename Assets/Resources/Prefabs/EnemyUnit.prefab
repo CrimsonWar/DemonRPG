@@ -75,7 +75,7 @@ PrefabInstance:
     - target: {fileID: 6452165161188920143, guid: 3d82916cc88e84a42a414c6c89172235,
         type: 3}
       propertyPath: m_Name
-      value: EnemyUnit Variant
+      value: EnemyUnit
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d82916cc88e84a42a414c6c89172235, type: 3}
@@ -102,10 +102,20 @@ MonoBehaviour:
   maxHP: 100
   currentHP: 0
   speed: 0
+  saveValue: 10
   HPBar: {fileID: 2260610669356932820}
   spriteRenderer: {fileID: 2645634748941239358}
   attacks: []
   abilities: []
+  menuIcon: {fileID: 0}
+  unitState: 0
+  statuses: []
+  DamagePopup: {fileID: 3026678186311328474, guid: bc3736174616dd240a1496fa2777c70a,
+    type: 3}
+  HealPopup: {fileID: 3026678186311328474, guid: 21463ef93a5657f40b876b8b58ed5165,
+    type: 3}
+  TextPopup: {fileID: 3026678186311328474, guid: 2edee09849013714d95bf5858744cfe5,
+    type: 3}
 --- !u!114 &2260610669356932820 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6452165160487564696, guid: 3d82916cc88e84a42a414c6c89172235,

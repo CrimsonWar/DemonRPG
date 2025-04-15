@@ -25,6 +25,7 @@ public class Player : MonoBehaviour, iUnitControl
     
     IEnumerator SelectTarget(AttackBase attack) {
         bool targetSelected = false;
+        Selector.inst.resetSelector();
         List<iUnit> possibleTargets = attack.possibleTargets();
         List<iUnit> selectableTargets = new List<iUnit>{};
         iUnit Target = null;

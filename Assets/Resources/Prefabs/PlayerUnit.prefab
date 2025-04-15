@@ -110,7 +110,17 @@ MonoBehaviour:
   maxHP: 100
   currentHP: 0
   speed: 0
+  saveValue: 10
   HPBar: {fileID: 8600571692919903095}
   spriteRenderer: {fileID: 5526829093824072093}
   attacks: []
   abilities: []
+  menuIcon: {fileID: 0}
+  unitState: 0
+  statuses: []
+  DamagePopup: {fileID: 3026678186311328474, guid: bc3736174616dd240a1496fa2777c70a,
+    type: 3}
+  HealPopup: {fileID: 3026678186311328474, guid: 21463ef93a5657f40b876b8b58ed5165,
+    type: 3}
+  TextPopup: {fileID: 3026678186311328474, guid: 2edee09849013714d95bf5858744cfe5,
+    type: 3}

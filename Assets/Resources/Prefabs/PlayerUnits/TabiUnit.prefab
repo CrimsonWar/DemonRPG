@@ -357,6 +357,12 @@ MonoBehaviour:
   menuIcon: {fileID: 21300000, guid: d133d39795cd3894b8856c83d80ddba7, type: 3}
   unitState: 0
   statuses: []
+  DamagePopup: {fileID: 3026678186311328474, guid: bc3736174616dd240a1496fa2777c70a,
+    type: 3}
+  HealPopup: {fileID: 3026678186311328474, guid: 21463ef93a5657f40b876b8b58ed5165,
+    type: 3}
+  TextPopup: {fileID: 3026678186311328474, guid: 2edee09849013714d95bf5858744cfe5,
+    type: 3}
 --- !u!114 &8926812915585056450
 MonoBehaviour:
   m_ObjectHideFlags: 0

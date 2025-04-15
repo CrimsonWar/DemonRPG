@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public enum UnitState
 {
@@ -26,6 +27,7 @@ public abstract class UnitAbstract : MonoBehaviour,iUnit
     public UnitState unitState;
     public iUnit Target;
     public StatusBase[] statuses;
+    public GameObject DamagePopup, HealPopup, TextPopup;
 
     private Animator _animator;
     private bool isDone = false;
@@ -77,6 +79,8 @@ public abstract class UnitAbstract : MonoBehaviour,iUnit
     }
 
     public virtual void takeDamage(int damageTaken) {
+        GameObject dmgText = Instantiate(DamagePopup, gameObject.transform);
+        dmgText.transform.GetChild(0).GetComponent<TextMeshPro>().SetText(damageTaken.ToString());
         if(unitState == UnitState.OnTheBrink) {
             saveValue++;
             this.DeathSave();
@@ -84,6 +88,8 @@ public abstract class UnitAbstract : MonoBehaviour,iUnit
             currentHP -= damageTaken;
             if(currentHP <= 0) {
                 currentHP = 0;
+                GameObject brinkText = Instantiate(TextPopup, gameObject.transform);
+                brinkText.transform.GetChild(0).GetComponent<TextMeshPro>().SetText("HOLDING ON!");
                 unitState = UnitState.OnTheBrink;
             }
             HPBar.SetHealth(currentHP);
@@ -92,6 +98,8 @@ public abstract class UnitAbstract : MonoBehaviour,iUnit
 
     public void heal(int healAmount) {
         if(unitState != UnitState.Dead) {
+            GameObject healText = Instantiate(HealPopup, gameObject.transform);
+            healText.transform.GetChild(0).GetComponent<TextMeshPro>().SetText(healAmount.ToString());
             currentHP += healAmount;
             if(currentHP > maxHP) {
                 currentHP = maxHP;
@@ -119,7 +127,14 @@ public abstract class UnitAbstract : MonoBehaviour,iUnit
     public void DeathSave () {
         float RolledSave = Random.Range(1, 20);
         if(RolledSave < saveValue) {
+            GameObject deadText = Instantiate(TextPopup, gameObject.transform);
+            deadText.transform.GetChild(0).GetComponent<TextMeshPro>().SetText("DEAD!");
             unitState = UnitState.Dead;
+        } 
+        else
+        {
+            GameObject brinkText = Instantiate(TextPopup, gameObject.transform);
+            brinkText.transform.GetChild(0).GetComponent<TextMeshPro>().SetText("HOLDING ON!");
         }
 
     }

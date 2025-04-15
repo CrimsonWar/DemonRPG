@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class EnemyUnit : UnitAbstract
 {
@@ -30,9 +31,13 @@ public class EnemyUnit : UnitAbstract
     }
 
     public override void takeDamage(int damageTaken) {
+        GameObject dmgText = Instantiate(DamagePopup, gameObject.transform);
+        dmgText.transform.GetChild(0).GetComponent<TextMeshPro>().SetText(damageTaken.ToString());
         currentHP -= damageTaken;
         if(currentHP <= 0) {
             currentHP = 0;
+            GameObject deadText = Instantiate(TextPopup, gameObject.transform);
+            deadText.transform.GetChild(0).GetComponent<TextMeshPro>().SetText("DEAD!");
             unitState = UnitState.Dead;
         }
         HPBar.SetHealth(currentHP);
