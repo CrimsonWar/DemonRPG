@@ -5,6 +5,15 @@ using UnityEngine;
 public class WindupPunch : AttackBase
 {
     public int damageValue = 10;
+    public int baseDamage = 10;
+    public GameObject QTE;
+    public int Length;
+    public int extraDamagePerTest = 5;
+    public CoroutineQueue queue;
+
+    private void Start() {
+        queue = new CoroutineQueue(1,StartCoroutine);
+    }
 
     public override List<iUnit> possibleTargets() {
         List<iUnit> targets = new List<iUnit>{};
@@ -23,20 +32,38 @@ public class WindupPunch : AttackBase
     }
     
     IEnumerator doDamage() {
-        Vector3 targetPos = User.getTargetPos();
-        yield return this.SlideToPosition(targetPos);
-        iUnit Target = User.getTarget();
-        User.PlayAttack();
-        Target.takeDamage(damageValue);
-        yield return this.SlideToStart();
-        User.OnTurnEnd();
+
+        queue.Run(attackSlide());
+        queue.Run(Mash());
+        queue.Run(backSlide());        
+        yield return null;
     }
 
     public override void setAttackType() {
         attackType = AttackType.Attack;
     }
 
-    IEnumerator MashForDamage() {
-        yield return null;
+    IEnumerator attackSlide() {
+        Vector3 targetPos = User.getTargetPos();
+        yield return this.SlideToPosition(targetPos);
+    }
+
+    IEnumerator Mash(){
+        User.PlayWindup();
+        GameObject QTEObj = Instantiate(QTE, BattleManager.inst.UI);
+        BaseQTE QTEHandler = QTEObj.GetComponent<BaseQTE>();
+        QTEHandler.MaxPoints = extraDamagePerTest;
+        yield return new WaitForSeconds(Length);
+        int points = QTEHandler.pointsGathered;
+        damageValue = baseDamage + points;
+        Destroy(QTEObj);
+        iUnit Target = User.getTarget();
+        User.PlayAttack();
+        Target.takeDamage(damageValue);
+    }
+
+    IEnumerator backSlide(){
+        yield return this.SlideToStart();
+        User.OnTurnEnd();
     }
 }

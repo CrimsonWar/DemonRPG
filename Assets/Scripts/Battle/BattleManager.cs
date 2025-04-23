@@ -27,6 +27,7 @@ public class BattleManager : MonoBehaviour
     public PlayerMenu playerMenu3;
     public TurnOrder turnOrder;
     public GameObject focusPrefab;
+    public Transform UI;
     private FocusHandler UnitFocus;
 
     public List<GameObject> ObjectList;
@@ -54,20 +55,10 @@ public class BattleManager : MonoBehaviour
     }
 
     private void Update() {
-        if(InputManager.Interact) {
-            //for windup later
-        }
         bool isDone = ObjectList[currentTurn].GetComponent<UnitAbstract>().isTurnDone();
         if(isDone){
-            bool unitDead = true;
-            while (unitDead)
-            {
-                currentTurn = turnOrder.getNextTurn();
-                unitDead = this.checkDead(currentTurn);
-            }
-            this.getNextState();
-        }
-        switch (state) {
+            checkWonOrLost();
+            switch (state) {
             case BattleState.Won:
                 saveParty();
                 encounterCache.Cache.setResult(state);
@@ -78,6 +69,16 @@ public class BattleManager : MonoBehaviour
                 encounterCache.Cache.setResult(state);
                 sceneLoader.loadOverworld();
                 break;
+            default:
+                bool unitDead = true;
+                while (unitDead)
+                {
+                    currentTurn = turnOrder.getNextTurn();
+                    unitDead = this.checkDead(currentTurn);
+                }
+                this.getNextState();
+                break;
+            }
         }
     }
 
@@ -154,12 +155,6 @@ public class BattleManager : MonoBehaviour
 
     private void getNextState () {
         this.resetPlayerMenus();
-        if((EnemyUnit1 == null || EnemyUnit1.isDead()) && (EnemyUnit2 == null || EnemyUnit2.isDead()) && (EnemyUnit3 == null || EnemyUnit3.isDead())) {
-            state = BattleState.Won;
-        }
-        if((PlayerUnit1 == null || PlayerUnit1.isDead()) && (PlayerUnit2 == null || PlayerUnit2.isDead()) && (PlayerUnit3 == null || PlayerUnit3.isDead())) {
-            state = BattleState.Lost;
-        }
         if(state != BattleState.Won && state != BattleState.Lost) {
             int slot = ObjectList[currentTurn].GetComponent<UnitAbstract>().getSlot();
             switch (slot) {
@@ -261,6 +256,52 @@ public class BattleManager : MonoBehaviour
         }
         if(PlayerUnit3 != null) {
             PartyManager.inst.setHealthSlot3(PlayerUnit3.maxHP);
+        }
+    }
+
+    private void checkWonOrLost () {
+        bool enemy1 = true;
+        bool enemy2 = true;
+        bool enemy3 = true;
+        bool player1 = true;
+        bool player2 = true;
+        bool player3 = true;
+        
+        if (EnemyUnit1 != null)
+        {
+           enemy1 = EnemyUnit1.isDead();
+        } 
+        if (EnemyUnit2 != null)
+        {
+           enemy2 = EnemyUnit2.isDead();
+        }
+        if (EnemyUnit3 != null)
+        {
+           enemy3 = EnemyUnit3.isDead();
+        }
+        
+
+        if (PlayerUnit1 != null)
+        {
+           player1 = PlayerUnit1.isDead();
+        }
+        if (PlayerUnit2 != null)
+        {
+           player2 = PlayerUnit2.isDead();
+        }
+        if (PlayerUnit3 != null)
+        {
+           player3 = PlayerUnit3.isDead();
+        }
+
+        //win
+        if(enemy1 && enemy2 && enemy3) {
+            state = BattleState.Won;
+        }
+
+        //lose
+        if(player1 && player2 && player3) {
+            state = BattleState.Lost;
         }
     }
 
