@@ -5,18 +5,17 @@ using UnityEngine;
 public class Player : MonoBehaviour, iUnitControl
 {
     public UnitAbstract User;
-    public bool turnDone = false;
+    
     public void takeTurn(UnitAbstract unit){
         User = unit;
-        turnDone = false;
+        User.turnDone = false;
         StartCoroutine(HandleTurn());
     }
     IEnumerator HandleTurn(){
-        while (!turnDone)
+        while (!User.turnDone)
         {
             yield return null;
         }
-        User.OnTurnEnd();
     }
     public void handleAttack (AttackBase attack) {
         StopCoroutine(SelectTarget(attack));
@@ -65,8 +64,6 @@ public class Player : MonoBehaviour, iUnitControl
         }
         Selector.inst.resetSelector();
         attack.doAttack();
-        yield return new WaitForSeconds(3);
-        turnDone = true;
 
     }
 }

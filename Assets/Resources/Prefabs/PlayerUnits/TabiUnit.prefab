@@ -204,9 +204,9 @@ MonoBehaviour:
   attackType: 1
   damageValue: 10
   baseDamage: 10
-  QTE: {fileID: 6929172957299616356, guid: 4f8a176fa4fe44241a7653c45fe8d741, type: 3}
+  QTE: {fileID: 1245276431802539029, guid: 983c9d553db84244fa024b27188366ec, type: 3}
   Length: 3
-  extraDamagePerTest: 5
+  extraDamagePerTest: 30
 --- !u!1001 &3671242821254535172
 PrefabInstance:
   m_ObjectHideFlags: 0

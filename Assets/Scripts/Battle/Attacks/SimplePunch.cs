@@ -29,7 +29,8 @@ public class SimplePunch : AttackBase
         User.PlayAttack();
         Target.takeDamage(damageValue);
         yield return this.SlideToStart();
-        User.OnTurnEnd();
+        User.turnDone = true;
+        BattleManager.inst.finishTurn();
     }
 
     public override void setAttackType() {

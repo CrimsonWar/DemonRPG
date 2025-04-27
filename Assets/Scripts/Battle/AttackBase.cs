@@ -10,7 +10,7 @@ public enum AttackType
 public abstract class AttackBase : MonoBehaviour, iAttack
 {
     public AttackBase inst;
-    public iUnit User;
+    public UnitAbstract User;
     public string attackName;
     public string description;
     public Vector3 startPosition;
@@ -22,7 +22,7 @@ public abstract class AttackBase : MonoBehaviour, iAttack
         inst = this;
         this.setAttackType();
     }
-    public void setUser (iUnit user) {
+    public void setUser (UnitAbstract user) {
         User = user;
         startPosition = User.getSpriteObj().transform.position;
     }

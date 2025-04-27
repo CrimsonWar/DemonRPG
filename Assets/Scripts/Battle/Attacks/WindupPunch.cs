@@ -35,7 +35,8 @@ public class WindupPunch : AttackBase
 
         queue.Run(attackSlide());
         queue.Run(Mash());
-        queue.Run(backSlide());        
+        queue.Run(backSlide());
+        queue.Run(EndTurn());        
         yield return null;
     }
 
@@ -53,6 +54,7 @@ public class WindupPunch : AttackBase
         GameObject QTEObj = Instantiate(QTE, BattleManager.inst.UI);
         BaseQTE QTEHandler = QTEObj.GetComponent<BaseQTE>();
         QTEHandler.MaxPoints = extraDamagePerTest;
+        QTEHandler.QTESeconds = Length;
         yield return new WaitForSeconds(Length);
         int points = QTEHandler.pointsGathered;
         damageValue = baseDamage + points;
@@ -60,10 +62,15 @@ public class WindupPunch : AttackBase
         iUnit Target = User.getTarget();
         User.PlayAttack();
         Target.takeDamage(damageValue);
+        yield return null;
     }
 
     IEnumerator backSlide(){
         yield return this.SlideToStart();
-        User.OnTurnEnd();
+    }
+    IEnumerator EndTurn(){
+        User.turnDone = true;
+        BattleManager.inst.finishTurn();
+        yield return null;
     }
 }

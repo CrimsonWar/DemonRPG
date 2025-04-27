@@ -27,7 +27,8 @@ public class SimpleHeal : AttackBase
         User.PlaySupport();
         Target.heal(healAmount);
         yield return new WaitForSeconds(3);
-        User.OnTurnEnd();
+        User.turnDone = true;
+        BattleManager.inst.finishTurn();
     }
     
     public override void setAttackType() {

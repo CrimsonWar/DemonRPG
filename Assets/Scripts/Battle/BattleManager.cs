@@ -38,6 +38,7 @@ public class BattleManager : MonoBehaviour
     public EnemyUnit EnemyUnit2;
     public EnemyUnit EnemyUnit3;
     private int currentTurn;
+    private bool nextTurn = false;
 
     void Start()
     {
@@ -55,8 +56,8 @@ public class BattleManager : MonoBehaviour
     }
 
     private void Update() {
-        bool isDone = ObjectList[currentTurn].GetComponent<UnitAbstract>().isTurnDone();
-        if(isDone){
+        if(nextTurn){
+            nextTurn = false;
             checkWonOrLost();
             switch (state) {
             case BattleState.Won:
@@ -303,6 +304,11 @@ public class BattleManager : MonoBehaviour
         if(player1 && player2 && player3) {
             state = BattleState.Lost;
         }
+    }
+
+    public void finishTurn () {
+        ObjectList[currentTurn].GetComponent<UnitAbstract>().OnTurnEnd();
+        nextTurn = true;
     }
 
 }

@@ -35,13 +35,19 @@ public class QTE_Slider : BaseQTE
             Rating.SetActive(true);
             float pointPercentage = slider.value / slider.maxValue;
             if(pointPercentage < 0.2f) {
-                Rating.GetComponent<TMP_Text>().SetText("SHIT!");
-            } else if(pointPercentage < 0.5f) {
-                Rating.GetComponent<TMP_Text>().SetText("GOOD!");
+            Rating.GetComponent<TMP_Text>().SetText("WEAK");
+            } else if(pointPercentage < 0.4f) {
+                Rating.GetComponent<TMP_Text>().SetText("GOOD");
+            } else if(pointPercentage < 0.6f) {
+                Rating.GetComponent<TMP_Text>().SetText("MEATY");
+            } else if(pointPercentage < 0.7f) {
+                Rating.GetComponent<TMP_Text>().SetText("GNARLY!");
+            } else if(pointPercentage < 0.8f) {
+                Rating.GetComponent<TMP_Text>().SetText("KILLER!");
             } else if(pointPercentage < 0.9f) {
-                Rating.GetComponent<TMP_Text>().SetText("NICE!");
+                Rating.GetComponent<TMP_Text>().SetText("SADISTIC!!");
             } else {
-                Rating.GetComponent<TMP_Text>().SetText("EXCELLENT!");
+                Rating.GetComponent<TMP_Text>().SetText("HELLISH!!!");
             }
             int pointsToAdd = (int)Mathf.Round(MaxPoints * pointPercentage);
             pointsGathered = pointsGathered + pointsToAdd;

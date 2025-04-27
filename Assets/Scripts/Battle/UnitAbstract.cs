@@ -28,6 +28,7 @@ public abstract class UnitAbstract : MonoBehaviour,iUnit
     public iUnit Target;
     public StatusBase[] statuses;
     public GameObject DamagePopup, HealPopup, TextPopup;
+    public bool turnDone = false;
 
     private Animator _animator;
     private bool isDone = false;
@@ -44,10 +45,10 @@ public abstract class UnitAbstract : MonoBehaviour,iUnit
 
     private void SetupAttacks (){
         foreach(var element in attacks) {
-            element.setUser(GetComponent<iUnit>());
+            element.setUser(GetComponent<UnitAbstract>());
         }
         foreach(var element in abilities) {
-            element.setUser(GetComponent<iUnit>());
+            element.setUser(GetComponent<UnitAbstract>());
         }
     }
 
@@ -162,7 +163,7 @@ public abstract class UnitAbstract : MonoBehaviour,iUnit
     }
 
     public void OnTurnEnd () {
-        isDone = true;
+       //for status later use os status
     }
 
     public void handleSelectedAttack (AttackBase attack) {

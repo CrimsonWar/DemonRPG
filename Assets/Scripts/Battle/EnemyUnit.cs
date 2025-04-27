@@ -17,10 +17,6 @@ public class EnemyUnit : UnitAbstract
         {
             GetComponent<iUnitControl>().takeTurn(this);
         }
-        else
-        {
-            StartCoroutine(Died());
-        }
     }
 
     public override Vector3 getTargetPos() {
@@ -41,10 +37,5 @@ public class EnemyUnit : UnitAbstract
             unitState = UnitState.Dead;
         }
         HPBar.SetHealth(currentHP);
-}
-
-    IEnumerator Died() {
-        yield return new WaitForSeconds(3);
-        this.OnTurnEnd();
     }
 }
