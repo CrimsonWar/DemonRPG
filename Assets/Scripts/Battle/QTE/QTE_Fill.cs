@@ -9,7 +9,6 @@ public class QTE_Fill : BaseQTE
     public TMP_Text ButtonText;
     public GameObject Rating;
     public Slider slider;
-    public int maxPresses;
     private bool buttonPressed;
     private Animator _animator;
     private const string trigger = "ButtonPressed";
@@ -30,8 +29,7 @@ public class QTE_Fill : BaseQTE
                 break;
         }
         _animator = GetComponent<Animator>();
-        float pressesPerSec = maxPresses / QTESeconds;
-        valPerPress = (slider.maxValue / QTESeconds) / pressesPerSec;
+        valPerPress = 6f;
     }
     private void Update() {
         slider.value -= decayPercentage;
@@ -42,31 +40,37 @@ public class QTE_Fill : BaseQTE
             _animator.SetTrigger(trigger);
         }
         float pointPercentage = slider.value / slider.maxValue;
-
+        int pointsToAdd = 0;
         if(pointPercentage < 0.2f) {
             Rating.GetComponent<TMP_Text>().SetText("WEAK");
             decayPercentage = 0f;
+            pointsToAdd = 0;
         } else if(pointPercentage < 0.4f) {
             Rating.GetComponent<TMP_Text>().SetText("GOOD");
-            decayPercentage = 0.005f;
+            decayPercentage = 0.01f;
+            pointsToAdd = (int)Mathf.Round(MaxPoints * 0.2f);
         } else if(pointPercentage < 0.6f) {
             Rating.GetComponent<TMP_Text>().SetText("MEATY");
-            decayPercentage = 0.01f;
+            decayPercentage = 0.02f;
+            pointsToAdd = (int)Mathf.Round(MaxPoints * 0.4f);
         } else if(pointPercentage < 0.7f) {
             Rating.GetComponent<TMP_Text>().SetText("GNARLY!");
-            decayPercentage = 0.02f;
+            decayPercentage = 0.04f;
+            pointsToAdd = (int)Mathf.Round(MaxPoints * 0.6f);
         } else if(pointPercentage < 0.8f) {
             Rating.GetComponent<TMP_Text>().SetText("KILLER!");
-            decayPercentage = 0.03f;
+            decayPercentage = 0.06f;
+            pointsToAdd = (int)Mathf.Round(MaxPoints * 0.7f);
         } else if(pointPercentage < 0.9f) {
             Rating.GetComponent<TMP_Text>().SetText("SADISTIC!!");
-            decayPercentage = 0.05f;
+            decayPercentage = 0.07f;
+            pointsToAdd = (int)Mathf.Round(MaxPoints * 0.8f);
         } else {
             Rating.GetComponent<TMP_Text>().SetText("HELLISH!!!");
             decayPercentage = 0.08f;
+            pointsToAdd = MaxPoints;
         }
 
-        int pointsToAdd = (int)Mathf.Round(MaxPoints * pointPercentage);
         pointsGathered = pointsToAdd;
     }
 
@@ -95,35 +99,6 @@ public class QTE_Fill : BaseQTE
                 break;
         }
         return retVal;
-    }
-
-    private void CalcRating (float pointPercentage) {
-        if(pointPercentage < 0.2f) {
-            Rating.GetComponent<TMP_Text>().SetText("WEAK");
-            decayPercentage = 0f;
-        } else if(pointPercentage < 0.4f) {
-            Rating.GetComponent<TMP_Text>().SetText("GOOD");
-            decayPercentage = 0.05f * valPerPress;
-        } else if(pointPercentage < 0.6f) {
-            Rating.GetComponent<TMP_Text>().SetText("MEATY");
-            decayPercentage = 0.1f * valPerPress;
-        } else if(pointPercentage < 0.7f) {
-            Rating.GetComponent<TMP_Text>().SetText("GNARLY!");
-            decayPercentage = 0.2f * valPerPress;
-        } else if(pointPercentage < 0.8f) {
-            Rating.GetComponent<TMP_Text>().SetText("KILLER!");
-            decayPercentage = 0.3f * valPerPress;
-        } else if(pointPercentage < 0.9f) {
-            Rating.GetComponent<TMP_Text>().SetText("SADISTIC!!");
-            decayPercentage = 0.4f * valPerPress;
-        } else {
-            Rating.GetComponent<TMP_Text>().SetText("HELLISH!!!");
-            decayPercentage = 0.5f * valPerPress;
-        }
-    }
-
-    private void CalcPoints (float pointPercentage) {
-        
     }
 
 }
