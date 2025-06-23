@@ -26,8 +26,9 @@ public class SimplePunch : AttackBase
         Vector3 targetPos = User.getTargetPos();
         yield return this.SlideToPosition(targetPos);
         iUnit Target = User.getTarget();
+        int moddedDamage = User.HandleDamageDoneStatus(damageValue);
         User.PlayAttack();
-        Target.takeDamage(damageValue);
+        Target.takeDamage(moddedDamage, User.gameObject);
         yield return this.SlideToStart();
         User.turnDone = true;
         BattleManager.inst.finishTurn();

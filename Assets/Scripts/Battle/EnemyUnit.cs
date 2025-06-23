@@ -26,7 +26,9 @@ public class EnemyUnit : UnitAbstract
         return targetPos;
     }
 
-    public override void takeDamage(int damageTaken) {
+    public override void takeDamage(int damageTaken, GameObject triggerUnit)
+    {
+        damageTaken = HandleDamageTakenStatus(damageTaken, triggerUnit);
         GameObject dmgText = Instantiate(DamagePopup, gameObject.transform);
         dmgText.transform.GetChild(0).GetComponent<TextMeshPro>().SetText(damageTaken.ToString());
         currentHP -= damageTaken;

@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inst: {fileID: 0}
+  User: {fileID: 0}
   attackName: Give Snack
   description: Restore some HP
   startPosition: {x: 0, y: 0, z: 0}
@@ -96,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inst: {fileID: 0}
+  User: {fileID: 0}
   attackName: Punch
   description: Just a simple Punch
   startPosition: {x: 0, y: 0, z: 0}
@@ -113,7 +115,7 @@ GameObject:
   - component: {fileID: 3907192552746775428}
   - component: {fileID: 4204541297715989731}
   m_Layer: 0
-  m_Name: Fat_Defence
+  m_Name: Fat_Defense
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,7 +132,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 9212797328918466553}
   m_Father: {fileID: 7836866822341250822}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -147,11 +150,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inst: {fileID: 0}
-  attackName: Fat Defence
-  description: Use Bodyfat to reduce Damage taken
+  User: {fileID: 0}
+  attackName: Fat Defense
+  description: Use Bodyfat to reduce Damage taken for 5 turns
   startPosition: {x: 0, y: 0, z: 0}
   duration: 1
   attackType: 0
+  DefenseStatus: {fileID: 8711809615426305245}
 --- !u!1 &7778539497032049257
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,6 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inst: {fileID: 0}
+  User: {fileID: 0}
   attackName: Windup Punch
   description: Test attack with buttomash for more damage
   startPosition: {x: 0, y: 0, z: 0}
@@ -207,6 +213,59 @@ MonoBehaviour:
   QTE: {fileID: 1245276431802539029, guid: 983c9d553db84244fa024b27188366ec, type: 3}
   Length: 3
   extraDamagePerTest: 30
+--- !u!1 &8711809615426305245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9212797328918466553}
+  - component: {fileID: 4464512410227398357}
+  m_Layer: 0
+  m_Name: DefenseStatus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9212797328918466553
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8711809615426305245}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3907192552746775428}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4464512410227398357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8711809615426305245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a381783dc013054296102bfb893199d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Category: 2
+  Type: 0
+  reapplyType: 2
+  sprite: {fileID: 21300000, guid: cbbebdec292ac864eabfd55245a216b4, type: 3}
+  length: 5
+  rank: 0
+  Name: Fat Defense
+  Description: Bodyfat reduces Damage taken
+  DamageDivider: 2
 --- !u!1001 &3671242821254535172
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -308,6 +367,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3671242821254535172}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3997939975646624631 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 398945548194046835, guid: 3d82916cc88e84a42a414c6c89172235,
+    type: 3}
+  m_PrefabInstance: {fileID: 3671242821254535172}
+  m_PrefabAsset: {fileID: 0}
 --- !u!212 &5805155613902092150 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 7089459261669633906, guid: 3d82916cc88e84a42a414c6c89172235,
@@ -360,13 +425,14 @@ MonoBehaviour:
   - {fileID: 4204541297715989731}
   menuIcon: {fileID: 21300000, guid: d133d39795cd3894b8856c83d80ddba7, type: 3}
   unitState: 0
-  statuses: []
   DamagePopup: {fileID: 3026678186311328474, guid: bc3736174616dd240a1496fa2777c70a,
     type: 3}
   HealPopup: {fileID: 3026678186311328474, guid: 21463ef93a5657f40b876b8b58ed5165,
     type: 3}
   TextPopup: {fileID: 3026678186311328474, guid: 2edee09849013714d95bf5858744cfe5,
     type: 3}
+  turnDone: 0
+  StatusBar: {fileID: 3997939975646624631}
 --- !u!114 &8926812915585056450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,7 +446,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   User: {fileID: 0}
-  turnDone: 0
 --- !u!4 &7836866822341250822 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6787200888271640322, guid: 3d82916cc88e84a42a414c6c89172235,

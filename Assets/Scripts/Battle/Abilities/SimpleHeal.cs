@@ -24,8 +24,9 @@ public class SimpleHeal : AttackBase
 
     IEnumerator doHeal(){
         iUnit Target = User.getTarget();
+        int moddedHeal = User.HandleHealingDoneStatus(healAmount);
         User.PlaySupport();
-        Target.heal(healAmount);
+        Target.heal(moddedHeal, User.gameObject);
         yield return new WaitForSeconds(3);
         User.turnDone = true;
         BattleManager.inst.finishTurn();

@@ -58,10 +58,11 @@ public class WindupPunch : AttackBase
         yield return new WaitForSeconds(Length);
         int points = QTEHandler.pointsGathered;
         damageValue = baseDamage + points;
+        int moddedDamage = User.HandleDamageDoneStatus(damageValue);
         Destroy(QTEObj);
         iUnit Target = User.getTarget();
         User.PlayAttack();
-        Target.takeDamage(damageValue);
+        Target.takeDamage(moddedDamage, User.gameObject);
         yield return null;
     }
 

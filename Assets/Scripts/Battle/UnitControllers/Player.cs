@@ -31,24 +31,24 @@ public class Player : MonoBehaviour, iUnitControl
         switch (attack.attackType)
         {
             case AttackType.Attack:
-                if(possibleTargets[3] == null || !possibleTargets[3].isDead()) {
+                if(possibleTargets[3] != null && !possibleTargets[3].isDead()) {
                     selectableTargets.Add(possibleTargets[3]);   
                 }
-                if(possibleTargets[4] == null || !possibleTargets[4].isDead()) {
+                if(possibleTargets[4] != null && !possibleTargets[4].isDead()) {
                     selectableTargets.Add(possibleTargets[4]);
                 }
-                if(possibleTargets[5] == null || !possibleTargets[5].isDead()) {
+                if(possibleTargets[5] != null && !possibleTargets[5].isDead()) {
                     selectableTargets.Add(possibleTargets[5]);
                 }
                 break;
             case AttackType.Ability:
-                if(possibleTargets[0] == null || !possibleTargets[0].isDead()) {
+                if(possibleTargets[0] != null && !possibleTargets[0].isDead()) {
                     selectableTargets.Add(possibleTargets[0]);
                 }
-                if(possibleTargets[1] == null || !possibleTargets[1].isDead()) {
+                if(possibleTargets[1] != null && !possibleTargets[1].isDead()) {
                     selectableTargets.Add(possibleTargets[1]);
                 }
-                if(possibleTargets[2] == null || !possibleTargets[2].isDead()) {
+                if(possibleTargets[2] != null && !possibleTargets[2].isDead()) {
                     selectableTargets.Add(possibleTargets[2]);
                 }
                 break;

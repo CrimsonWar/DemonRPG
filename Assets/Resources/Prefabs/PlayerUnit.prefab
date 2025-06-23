@@ -69,6 +69,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d82916cc88e84a42a414c6c89172235, type: 3}
+--- !u!1 &3123451643401733532 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 398945548194046835, guid: 3d82916cc88e84a42a414c6c89172235,
+    type: 3}
+  m_PrefabInstance: {fileID: 3373737511372613359}
+  m_PrefabAsset: {fileID: 0}
 --- !u!212 &5526829093824072093 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 7089459261669633906, guid: 3d82916cc88e84a42a414c6c89172235,
@@ -117,10 +123,11 @@ MonoBehaviour:
   abilities: []
   menuIcon: {fileID: 0}
   unitState: 0
-  statuses: []
   DamagePopup: {fileID: 3026678186311328474, guid: bc3736174616dd240a1496fa2777c70a,
     type: 3}
   HealPopup: {fileID: 3026678186311328474, guid: 21463ef93a5657f40b876b8b58ed5165,
     type: 3}
   TextPopup: {fileID: 3026678186311328474, guid: 2edee09849013714d95bf5858744cfe5,
     type: 3}
+  turnDone: 0
+  StatusBar: {fileID: 3123451643401733532}

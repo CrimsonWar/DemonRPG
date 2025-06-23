@@ -4,39 +4,43 @@ using UnityEngine;
 
 public interface iUnit
 {
-    GameObject gameObject { get ; } 
+    GameObject gameObject { get; }
 
-    public void setTarget (iUnit target);
+    public void setTarget(iUnit target);
 
     public iUnit getTarget();
 
     public Vector3 getTargetPos();
 
-    public void takeDamage (int damageTaken);
+    public void takeDamage(int damageTaken, GameObject triggerUnit);
 
-    public void heal (int healAmount);
+    public void heal(int healAmount, GameObject triggerUnit);
 
-    public AttackBase[] getAttacks ();
-    
-    public AttackBase[] getAbilities ();
+    public AttackBase[] getAttacks();
+
+    public AttackBase[] getAbilities();
 
     public GameObject getSpriteObj();
 
-    public int getSlot ();
-    
+    public int getSlot();
+
     public Vector3 getUnitPos();
 
-    public void OnTurnEnd ();
+    public void OnTurnEnd();
 
-    public bool isDead ();
+    public bool isDead();
 
-    public void PlayAttack ();
+    public void PlayAttack();
 
-    public void PlayWindup ();
-    
-    public void PlaySupport ();
+    public void PlayWindup();
 
-    public void PlayDamageTaken ();
+    public void PlaySupport();
 
-    public void handleSelectedAttack (AttackBase attack);
+    public void PlayDamageTaken();
+
+    public void handleSelectedAttack(AttackBase attack);
+
+    public void ApplyStatus(GameObject status);
+
+    public void CheckStatusExpiration();
 }
